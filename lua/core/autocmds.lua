@@ -1,0 +1,22 @@
+local aug         = vim.api.nvim_create_augroup
+local aucmd       = vim.api.nvim_create_autocmd
+
+-- Special tab sizes for C/C++/Java
+local codeTabsGrp = aug("CodeTabs", { clear = true })
+aucmd("FileType", {
+  group    = codeTabsGrp,
+  pattern  = { "c", "cpp", "java" },
+  callback = function()
+    vim.opt_local.tabstop    = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.expandtab  = true
+  end,
+})
+
+-- Enter insert mode on terminal open
+local termGrp = aug("TerminalSettings", { clear = true })
+aucmd("TermOpen", {
+  group   = termGrp,
+  pattern = "*",
+  command = "startinsert",
+})
