@@ -53,19 +53,16 @@ o.spell                 = true
 -- BarBar(tabs plugin) not auto setting up
 vim.g.barbar_auto_setup = false
 
--- Diagnostic
-local signs = {
-  Error   = "",
-  Warn    = "",
-  Hint    = "",
-  Info    = ""
-}
-
--- Itera e registra cada sign
-for type, icon in pairs(signs) do
-  local name = "DiagnosticSign" .. type
-  vim.fn.sign_define(name, { text = icon, numhl = name })
-end
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN]  = " ",
+      [vim.diagnostic.severity.INFO]  = " ",
+      [vim.diagnostic.severity.HINT]  = " ",
+    },
+  },
+})
 
 vim.diagnostic.config({
   virtual_text     = true,

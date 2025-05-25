@@ -10,6 +10,9 @@ vimMap('n', 'Q', ':q<CR>')
 vimMap("n", "L", "<Cmd>NvimTreeOpen<CR>", { noremap = true, silent = true })
 vimMap("n", "K", "<Cmd>NvimTreeClose<CR>", { noremap = true, silent = true })
 
+vimMap("n", "s", "<Cmd>HopAnywhere<CR>", { noremap = true, silent = true })
+vimMap("n", "S", "<Cmd>HopAnywhereCurrentLine<CR>", { noremap = true, silent = true })
+
 -- Barbar
 vimMap("n", "<Tab>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
 vimMap("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })

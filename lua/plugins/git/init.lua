@@ -1,6 +1,7 @@
 return {
   { -- Git Change Signs
     "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
     opts = require("plugins.git.gitsigns"),
   },
 
@@ -13,14 +14,5 @@ return {
     -- or lazy = false. One of both options will work.
     event = "VeryLazy",
     opts = require("plugins.git.git-blame")
-  },
-
-  {
-    "chrisgrieser/nvim-tinygit",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    cmd = "Tinygit",
-    config = function ()
-      require("plugins.git.tinygit")
-    end
   },
 }

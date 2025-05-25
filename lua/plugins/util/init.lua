@@ -11,6 +11,7 @@ return {
 
   { -- Auto pairs
     "windwp/nvim-autopairs",
+    event = "VeryLazy",
     config = function()
       require("plugins.util.autopairs")
     end,
@@ -24,9 +25,10 @@ return {
 
   { -- Fuzzy finder
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.2",
+    version = "*",
+    tag = '0.1.8',
     dependencies = { "nvim-lua/plenary.nvim" },
-    event = "VeryLazy",
+    cmd = "Telescope",
     config = function()
       require("plugins.util.telescope")
     end,
@@ -34,6 +36,7 @@ return {
 
   { -- Useful plugin to comment and uncomment lines
     'numToStr/Comment.nvim',
+    event = "VeryLazy",
     opts = {}
   },
 
@@ -44,5 +47,14 @@ return {
     config = function()
       require("nvim-surround").setup({})
     end
+  },
+
+  {
+    'smoka7/hop.nvim',
+    version = "*",
+    cmd = {"HopAnywhere", "HopAnywhereCurrentLine"},
+    opts = {
+      keys = 'etovxqpdygfblzhckisuran'
+    }
   },
 }

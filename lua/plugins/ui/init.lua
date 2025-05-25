@@ -34,7 +34,7 @@ return {
   { -- File tabs
     "romgrk/barbar.nvim",
     version = "*",
-    event = "VeryLazy",
+    lazy = false,
     dependencies = {
       "lewis6991/gitsigns.nvim",
       "nvim-tree/nvim-web-devicons",
@@ -50,4 +50,17 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = require("plugins.ui.todo-comments")
   },
+
+  { -- Notifications and cmdline
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {},
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("plugins.ui.noice-nvim")
+    end
+  }
 }

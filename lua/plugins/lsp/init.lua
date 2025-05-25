@@ -1,7 +1,6 @@
 return {
   { -- Setup of the Mason plugin to manage the language servers
     "williamboman/mason.nvim",
-    lazy = false,
     config = function()
       require("mason").setup()
     end,
@@ -10,7 +9,6 @@ return {
   { -- Bridge of Mason with lspconfig
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
-    lazy = false,
     config = function()
       require("plugins.lsp.mason-nvim")
     end,
@@ -18,13 +16,14 @@ return {
 
   { -- Neodev to enhances Lua LSP with Neovim API definitions
     "folke/neodev.nvim",
+    event = "VeryLazy",
     opts = {},
   },
 
   { -- LSP config to configure the language servers
     "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
     lazy = false,
+    dependencies = { "williamboman/mason-lspconfig.nvim" },
     config = function()
       require("plugins.lsp.config")
     end,
@@ -49,7 +48,6 @@ return {
   { -- Syntax Highlighting and a lot more
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    lazy = false,
     config = function()
       require("plugins.lsp.treesitter")
     end,
