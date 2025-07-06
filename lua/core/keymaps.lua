@@ -10,16 +10,13 @@ vimMap('n', 'Q', ':q<CR>')
 vimMap("n", "L", "<Cmd>NvimTreeOpen<CR>", { noremap = true, silent = true })
 vimMap("n", "K", "<Cmd>NvimTreeClose<CR>", { noremap = true, silent = true })
 
-vimMap("n", "s", "<Cmd>HopAnywhere<CR>", { noremap = true, silent = true })
-vimMap("n", "S", "<Cmd>HopAnywhereCurrentLine<CR>", { noremap = true, silent = true })
+vimMap('v', '<leader>ca', vim.lsp.buf.code_action, { desc = "Code Action" })
 
 -- Barbar
 vimMap("n", "<Tab>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
 vimMap("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
 vimMap("n", "gG", "<Cmd>BufferClose<CR>", { noremap = true, silent = true })
-vimMap(
-  "n",
-  "<leader>tb",
+vimMap( "n", "<leader>tb",
   function()
     if vim.o.showtabline == 0 then
       vim.o.showtabline = 2
@@ -31,11 +28,12 @@ vimMap(
 )
 
 -- LSP 
-vimMap("n", "gd", vim.lsp.buf.definition)
-vimMap("n", "gk", vim.lsp.buf.hover)
-vimMap("n", "gi", vim.lsp.buf.implementation)
-vimMap("n", "<leader>rn", vim.lsp.buf.rename)
-vimMap("n", "<leader>ca", vim.lsp.buf.code_action)
+vimMap("n", "gd", vim.lsp.buf.definition, { desc = "Jump to de Definition" })
+vimMap("n", "gk", vim.lsp.buf.hover, { desc = "See Information About Element"})
+vimMap("n", "gi", vim.lsp.buf.implementation, { desc = "Jump to Implemenation"})
+vimMap({ "v", "n" }, "ga", require("actions-preview").code_actions, { desc = "See Code Actions"})
+vimMap("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename Code Object" })
+vimMap("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action"})
 vimMap(
   "n",
   "<leader>ft",
@@ -44,6 +42,10 @@ vimMap(
   end,
   { desc = "Format current buffer" }
 )
+
+-- Code Runner
+vimMap("n", "<leader>rc","<Cmd>RunCode<CR>", { desc = "Run Code"})
+vimMap("n", "<leader>rp","<Cmd>RunCode<CR>", { desc = "Run Project"})
 
 -- Telescope
 nvimMap(

@@ -16,7 +16,7 @@ return {
 
   { -- Neodev to enhances Lua LSP with Neovim API definitions
     "folke/neodev.nvim",
-    event = "VeryLazy",
+    lazy = false,
     opts = {},
   },
 
@@ -47,6 +47,7 @@ return {
 
   { -- Syntax Highlighting and a lot more
     "nvim-treesitter/nvim-treesitter",
+    dependencies = { "windwp/nvim-ts-autotag" },
     run = ":TSUpdate",
     config = function()
       require("plugins.lsp.treesitter")
@@ -58,5 +59,18 @@ return {
     opts = {},
     cmd = "Trouble",
     keys = require("plugins.lsp.trouble")
+  },
+
+  { -- Create a float window with a preview of code actions
+    "aznhe21/actions-preview.nvim",
+  },
+
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+    config = function()
+      require("plugins.lsp.tsls-tools")
+    end
   },
 }

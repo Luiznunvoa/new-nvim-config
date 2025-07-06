@@ -1,3 +1,3 @@
 require("barbar").setup({
-  auto_hide = false
+  auto_hide = true
 })

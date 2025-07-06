@@ -4,7 +4,11 @@ require("mason-lspconfig").setup({
     "ts_ls",
     "jdtls",
     "pylsp",
-    "clangd"
+    "clangd",
+    "prismals",
+    "bashls",
+    "cssls",
+    "sqlls"
   },
   automatic_installation = true,
   automatic_enable       = false,
