@@ -1,9 +1,7 @@
 require('code_runner').setup({
   filetype = {
     java = {
-      "cd $dir &&",
-      "javac $fileName &&",
-      "java $fileNameWithoutExt"
+      "cd $dir && javac $fileName && java $fileNameWithoutExt && rm *.class"
     },
     python = "python3 -u",
     typescript = "deno run",

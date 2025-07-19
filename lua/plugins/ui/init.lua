@@ -24,12 +24,12 @@ return {
     end,
   },
 
-  { -- Indentation lines
-    "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
-    main = "ibl",
-    opts = {},
-  },
+  -- { -- Indentation lines
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   event = "VeryLazy",
+  --   main = "ibl",
+  --   opts = {},
+  -- },
 
   { -- File tabs
     "romgrk/barbar.nvim",
@@ -51,16 +51,16 @@ return {
     opts = require("plugins.ui.todo-comments")
   },
 
-  { -- Notifications and cmdline
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {},
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    config = function()
-      require("plugins.ui.noice-nvim")
-    end
+  -- { -- Notifications and cmdline
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   opts = {},
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   },
+  --   config = function()
+  --     require("plugins.ui.noice-nvim")
+  --   end
+  -- }
   }
-}

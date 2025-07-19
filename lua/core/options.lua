@@ -20,7 +20,7 @@ o.undofile               = true
 
 -- Numbers
 o.number                 = true
-vim.wo.relativenumber    = false
+vim.wo.relativenumber    = true
 
 -- Tabs and indent
 o.tabstop                = 2
@@ -35,7 +35,7 @@ o.linebreak              = true
 -- UI
 o.cursorline             = true
 o.termguicolors          = true
-o.showmode               = false
+o.showmode               = true
 
 -- Clipboard
 vim.schedule(function()
