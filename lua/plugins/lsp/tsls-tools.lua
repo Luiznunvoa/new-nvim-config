@@ -1,4 +1,8 @@
+local shared = require("plugins.lsp.shared")
+
 require("typescript-tools").setup {
+  on_attach = shared.on_attach,
+  capabilities = shared.capabilities,
   settings = {
     -- spawn additional tsserver instance to calculate diagnostics on it
     separate_diagnostic_server = true,

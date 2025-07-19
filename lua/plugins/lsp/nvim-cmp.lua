@@ -65,6 +65,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     { name = "luasnip" },
   }, {
     { name = "buffer" },
@@ -72,22 +73,16 @@ cmp.setup({
   }),
   formatting = {
     format = function(entry, vim_item)
-      local lspkind_ok, lspkind = pcall(require, "lspkind")
-      if not lspkind_ok then
-        -- From kind_icons array
-        vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-        vim_item.menu = ({
-          buffer = "[ Buffer]",
-          nvim_lsp = "[ LSP]",
-          luasnip = "[ LuaSnip]",
-          nvim_lua = "[ Lua]",
-          latex_symbols = "[󰊄 LaTeX]",
-          copilot = "[ Copilot]",
-        })[entry.source.name]
-        return vim_item
-      else
-        return lspkind.cmp_format()(entry, vim_item)
-      end
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+      vim_item.menu = ({
+        buffer = "[ Buffer]",
+        nvim_lsp = "[ LSP]",
+        luasnip = "[ LuaSnip]",
+        nvim_lua = "[ Lua]",
+        latex_symbols = "[󰊄 LaTeX]",
+        copilot = "[ Copilot]",
+      })[entry.source.name]
+      return vim_item
     end
   }
 })
