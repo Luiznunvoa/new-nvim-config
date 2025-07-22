@@ -1,10 +1,10 @@
-local shared = require("plugins.lsp.shared")
+local shared = require("plugins.linter.lsp")
 
 require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
     "jdtls",
-    "pylsp",
+    "pyright",
     "clangd",
     "prismals",
     "bashls",
@@ -27,8 +27,12 @@ require("mason-lspconfig").setup({
             runtime = {
               version = "LuaJIT",
             },
+            diagnostics = {
+              globals = { "vim" },
+            },
             workspace = {
               library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false, -- impede verificação de pacotes externos
             },
             telemetry = { enable = false },
           },
@@ -36,20 +40,10 @@ require("mason-lspconfig").setup({
       })
     end,
 
-    ["pylsp"] = function()
-      require("lspconfig").pylsp.setup({
+    ["pyright"] = function()
+      require("lspconfig").pyright.setup({
         on_attach = shared.on_attach,
         capabilities = shared.capabilities,
-        settings = {
-          pylsp = {
-            plugins = {
-              pycodestyle = {
-                ignore = { "W391" },
-                maxLineLength = 200,
-              },
-            },
-          },
-        },
       })
     end,
 

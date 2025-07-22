@@ -1,4 +1,4 @@
-local shared = require("plugins.lsp.shared")
+local shared = require("plugins.linter.lsp")
 
 require("typescript-tools").setup {
   on_attach = shared.on_attach,
