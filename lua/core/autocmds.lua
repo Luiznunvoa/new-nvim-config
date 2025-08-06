@@ -20,3 +20,10 @@ aucmd("TermOpen", {
   pattern = "*",
   command = "startinsert",
 })
+
+aucmd({ "bufread", "bufnewfile" }, {
+  pattern = "*.dbml",
+  callback = function()
+    vim.bo.filetype = "jsonc"
+  end,
+})

@@ -2,7 +2,7 @@
 local vimMap = vim.keymap.set
 local nvimMap = vim.api.nvim_set_keymap
 local is_vscode = vim.g.vscode ~= nil
-code = require('vscode')
+-- code = require('vscode')
 
 -- Save and quit
 vimMap('n', 'W', ':w<CR>')
@@ -10,32 +10,41 @@ vimMap('n', 'Q', ':q<CR>')
 
 if is_vscode then
   vimMap("n", "L", function()
-    code.action("workbench.view.explorer")
+    require('vscode').action("workbench.view.explorer")
   end, { noremap = true, silent = true })
 
   vimMap("n", "K", function()
-    code.action("workbench.action.focusActiveEditorGroup")
+    require('vscode').action("workbench.action.focusActiveEditorGroup")
   end, { noremap = true, silent = true })
 
   vimMap('v', '<leader>ca', function()
-    code.action("editor.action.codeAction")
+    require('vscode').action("editor.action.codeAction")
   end, { noremap = true, silent = true })
 
   vimMap('v', '<leader>ca', function()
-    code.action("editor.action.codeAction")
+    require('vscode').action("editor.action.codeAction")
   end, { noremap = true, silent = true })
 
   vimMap("n", "<Tab>", function()
-    code.action("workbench.action.nextEditor")
+    require('vscode').action("workbench.action.nextEditor")
   end, { noremap = true, silent = true })
 
   vimMap("n", "<S-Tab>", function()
-    code.action("workbench.action.previousEditor")
+    require('vscode').action("workbench.action.previousEditor")
   end, { noremap = true, silent = true })
 
   vimMap("n", "<leader>ff", function()
-    code.action("workbench.action.quickOpen")
+    require('vscode').action("workbench.action.quickOpen")
   end, { noremap = true, silent = true })
+  
+  vimMap("n", "<leader>fw", function()
+    require('vscode').action("workbench.action.findInFiles")
+  end, { noremap = true, silent = true })
+
+  vimMap("n", "gG", function()
+    require('vscode').action("workbench.action.closeActiveEditor")
+  end, { noremap = true, silent = true })
+
 else
   vimMap("n", "L", "<Cmd>NvimTreeOpen<CR>", { noremap = true, silent = true })
   vimMap("n", "K", "<Cmd>NvimTreeClose<CR>", { noremap = true, silent = true })
