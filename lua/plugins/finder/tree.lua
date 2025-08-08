@@ -1,3 +1,6 @@
+vim.keymap.set("n", "L", "<Cmd>NvimTreeOpen<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "K", "<Cmd>NvimTreeClose<CR>", { noremap = true, silent = true })
+
 require("nvim-tree").setup({
   on_attach = "default",
   hijack_cursor = false,

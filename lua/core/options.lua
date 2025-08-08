@@ -7,6 +7,7 @@ g.loaded_netrwPlugin  = 1
 
 -- hide tabline
 vim.opt.showtabline   = 0
+vim.opt.winborder      = "rounded"
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
@@ -16,7 +17,7 @@ g.have_nerd_font      = true
 o.guicursor           = 'n-v-c:block,i:block'
 
 -- Files
-o.swapfile            = false    -- NO MORE SWAP FILES
+o.swapfile            = false -- NO MORE SWAP FILES
 o.undofile            = true
 
 -- Numbers
@@ -72,7 +73,7 @@ vim.diagnostic.config({
   update_in_insert = false,
   float = {
     scope = "cursor",
-    border = "solid",
+    border = "rounded",
     source = "if_many",
     header = "🔎 Diagnostic:",
     format = function(diagnostic)
