@@ -70,4 +70,40 @@ return {
       require("plugins.util.surround")
     end
   },
+
+  { -- Autocompletion framework
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+    },
+    event = "VeryLazy",
+    config = function()
+      require("plugins.util.nvim-cmp")
+    end,
+  },
+
+  { -- Syntax Highlighting and a lot more
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = { "windwp/nvim-ts-autotag" },
+    run = ":TSUpdate",
+    config = function()
+      require("plugins.util.treesitter")
+    end,
+  },
+
+  { -- Useful plugin for analyzing errors
+    "folke/trouble.nvim",
+    opts = {},
+    cmd = "Trouble",
+    keys = require("plugins.util.trouble")
+  },
+
+  { -- Create a float window with a preview of code actions
+    "aznhe21/actions-preview.nvim",
+  },
 }
