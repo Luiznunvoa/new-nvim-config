@@ -6,7 +6,7 @@ local coding  = require("plugins.coding")
 local finder  = require("plugins.finder")
 local tools   = require("plugins.tools")
 local git     = require("plugins.git")
-local lint = require("plugins.lint")
+local lint = require("plugins.linter")
 
 local plugins = {}
 vim.list_extend(plugins, ui)

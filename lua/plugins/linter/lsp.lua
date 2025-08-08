@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 
-
+-- INFO: Lua Config
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -12,7 +12,7 @@ lspconfig.lua_ls.setup({
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true), -- Adiciona arquivos do runtime do Neovim
-        checkThirdParty = false, -- Evita prompts desnecessários
+        checkThirdParty = false,                           -- Evita prompts desnecessários
       },
       telemetry = {
         enable = false, -- Desabilita envio de dados
@@ -21,3 +21,8 @@ lspconfig.lua_ls.setup({
   },
 })
 
+-- INFO: Tailwind Config
+lspconfig.tailwindcss.setup({
+  cmd = { "tailwindcss-language-server", "--stdio" },
+  filetypes = {  "html", "html-eex","css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+})
