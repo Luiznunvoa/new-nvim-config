@@ -1,22 +1,21 @@
--- Inicializa Mason
-require("mason").setup()
-
--- Garante instalação do lua_ls
-require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls" },
-  -- automatic_installation = true,
-})
-
 local lspconfig = require("lspconfig")
 
--- Configuração do lua_ls
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
+      runtime = {
+        version = "LuaJIT", -- Neovim usa LuaJIT
       },
-      telemetry = { enable = false },
+      diagnostics = {
+        globals = { "vim" }, -- Evita avisos sobre 'vim' indefinido
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true), -- Adiciona arquivos do runtime do Neovim
+        checkThirdParty = false, -- Evita prompts desnecessários
+      },
+      telemetry = {
+        enable = false, -- Desabilita envio de dados
+      },
     },
   },
 })
