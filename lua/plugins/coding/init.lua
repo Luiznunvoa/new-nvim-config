@@ -1,10 +1,10 @@
 return {
-  { -- Auto pairs
-    "windwp/nvim-autopairs",
-    event = "VeryLazy",
-    config = function()
-      require("plugins.coding.autopairs")
-    end,
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
   },
 
   { -- Useful plugin to comment and uncomment lines

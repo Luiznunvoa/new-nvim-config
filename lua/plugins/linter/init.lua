@@ -1,5 +1,10 @@
 return {
   {
+    "mason-org/mason.nvim",
+    opts = {}
+  },
+
+  {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
@@ -13,14 +18,5 @@ return {
     config = function()
       require("plugins.linter.nvim-lint")
     end,
-  },
-
-  { -- Linter fo typescript
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-    config = function()
-      require("plugins.linter.tsls_tools")
-    end
   },
 }

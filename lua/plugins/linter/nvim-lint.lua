@@ -5,13 +5,14 @@ require("lint").try_lint()
 -- INFO: SQL linter (sqlfluff)
 
 lint.linters.sqlfluff = {
-  name="sqlfluff",
+  name = "sqlfluff",
   cmd = "sqlfluff",
-  stdin = false,
+  stdin = true,  -- usa conteúdo do buffer ao invés do arquivo
   args = {
     "lint",
     "--config", vim.fn.getcwd() .. "/.sqlfluff",
     "--format", "json",
+    "-",  -- indica para sqlfluff ler stdin
   },
   stream = "stdout",
   ignore_exitcode = true,
@@ -45,7 +46,6 @@ lint.linters_by_ft = {
   sql = { "sqlfluff" },
   ["jinja.sql"] = { "sqlfluff" },
 }
-
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave", "CursorHold" }, {
   callback = function()

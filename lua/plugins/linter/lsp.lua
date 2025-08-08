@@ -26,3 +26,11 @@ lspconfig.tailwindcss.setup({
   cmd = { "tailwindcss-language-server", "--stdio" },
   filetypes = {  "html", "html-eex","css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
 })
+
+-- INFO: Typescript Config
+lspconfig.ts_ls.setup{}
+
+-- INFO: Python Config
+lspconfig.pyright.setup{}
+
+-- INFO: Other languages
