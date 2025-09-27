@@ -5,6 +5,26 @@ return {
   },
 
   {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "mason-org/mason.nvim" },
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "tailwindcss",
+        "ts_ls",
+        "pyright",
+        "texlab",
+        "bashls",
+        "eslint",
+        "clangd"
+      },
+      automatic_installation = true,
+    }
+  },
+
+  {
+    -- Using native vim.lsp.config (Neovim 0.11+)
+    -- nvim-lspconfig is optional but provides compatibility
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()

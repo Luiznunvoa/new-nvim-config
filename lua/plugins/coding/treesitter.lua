@@ -58,9 +58,9 @@ require("nvim-treesitter.configs").setup({
 
   ignore_install = {},
 
-  autotag = {
-    enable = true, -- toggle based on your HTML/JSX usage
-  },
+  -- autotag = {
+  --   enable = true, -- toggle based on your HTML/JSX usage
+  -- },
 
   -- Incremental selection: hit <CR> to expand/shrink
   incremental_selection = {

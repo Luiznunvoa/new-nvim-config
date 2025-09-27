@@ -9,6 +9,27 @@ return {
     end,
   },
 
+  -- {
+  --   'stevearc/oil.nvim',
+  --   ---@module 'oil'
+  --   ---@type oil.SetupOpts
+  --   opts = {},
+  --   cmd = "Oil",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     {
+  --       "echasnovski/mini.icons", opts = {}
+  --     },
+  --     {
+  --       "nvim-tree/nvim-web-devicons"
+  --     }
+  --   },
+  --   config = function()
+  --     require("plugins.finder.nvim-oil")
+  --   end
+  --
+  -- },
+
   { -- Useful plugin to show you pending key binds.
     "folke/which-key.nvim",
     event = "VeryLazy",

@@ -24,12 +24,12 @@ return {
     end,
   },
 
-  -- { -- Indentation lines
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   event = "VeryLazy",
-  --   main = "ibl",
-  --   opts = {},
-  -- },
+  { -- Indentation lines
+    "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
+    main = "ibl",
+    opts = {},
+  },
 
   { -- File tabs
     "romgrk/barbar.nvim",

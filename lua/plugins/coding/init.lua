@@ -46,7 +46,9 @@ return {
 
   { -- Syntax Highlighting and a lot more
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "windwp/nvim-ts-autotag" },
+    dependencies = {
+      "windwp/nvim-ts-autotag"
+    },
     run = ":TSUpdate",
     config = function()
       require("plugins.coding.treesitter")

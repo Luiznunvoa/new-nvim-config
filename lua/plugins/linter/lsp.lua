@@ -1,7 +1,11 @@
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
+local lspEnable = vim.lsp.enable
 
--- INFO: Lua Config
-lspconfig.lua_ls.setup({
+-- Lua Language Server Config
+lspconfig('lua_ls', {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
   settings = {
     Lua = {
       runtime = {
@@ -21,16 +25,61 @@ lspconfig.lua_ls.setup({
   },
 })
 
--- INFO: Tailwind Config
-lspconfig.tailwindcss.setup({
+-- Tailwind CSS Config
+lspconfig('tailwindcss', {
   cmd = { "tailwindcss-language-server", "--stdio" },
-  filetypes = {  "html", "html-eex","css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+  filetypes = { "html", "html-eex", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+  root_markers = { "tailwind.config.js", "tailwind.config.ts", "postcss.config.js", "postcss.config.ts", ".git" },
 })
 
--- INFO: Typescript Config
-lspconfig.ts_ls.setup{}
+-- TypeScript Config
+lspconfig('ts_ls', {
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+})
 
--- INFO: Python Config
-lspconfig.pyright.setup{}
+-- Python Config
+lspconfig('pyright', {
+  cmd = { "pyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyrightconfig.json", ".git" },
+})
 
--- INFO: Other languages
+-- LaTeX Config
+lspconfig('texlab', {
+  cmd = { "texlab" },
+  filetypes = { "tex", "plaintex", "bib" },
+  root_markers = { ".latexmkrc", ".git" },
+})
+
+-- Bash Config
+lspconfig('bashls', {
+  cmd = { "bash-language-server", "start" },
+  filetypes = { "sh", "bash" },
+  root_markers = { ".git" },
+})
+
+-- ESLint Config
+lspconfig('eslint', {
+  cmd = { "vscode-eslint-language-server", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+  root_markers = { ".eslintrc.js", ".eslintrc.json", ".eslintrc.yml", ".eslintrc.yaml", "eslint.config.js", "package.json", ".git" },
+})
+
+-- Clangd Config
+lspconfig('clangd', {
+  cmd = { "clangd" },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+  root_markers = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" },
+})
+
+-- Enable all configured LSP servers
+lspEnable('lua_ls')
+lspEnable('tailwindcss')
+lspEnable('ts_ls')
+lspEnable('pyright')
+lspEnable('texlab')
+lspEnable('bashls')
+lspEnable('eslint')
+lspEnable('clangd')
