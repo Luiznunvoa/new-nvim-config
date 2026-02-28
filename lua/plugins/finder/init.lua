@@ -41,7 +41,7 @@ return {
     version = "*",
     tag = '0.1.8',
     dependencies = { "nvim-lua/plenary.nvim" },
-    cmd = "Telescope",
+    -- cmd = "Telescope",
     config = function()
       require("plugins.finder.telescope")
     end,

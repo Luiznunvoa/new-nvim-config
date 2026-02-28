@@ -33,10 +33,18 @@ return {
     end,
   },
 
-  { -- Plugin to help me configure custom language servers
-    "mfussenegger/nvim-lint",
-    config = function()
-      require("plugins.linter.nvim-lint")
-    end,
+  -- { -- Plugin to help me configure custom language servers
+  --   "mfussenegger/nvim-lint",
+  --   config = function()
+  --     require("plugins.linter.nvim-lint")
+  --   end,
+  -- },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        python = { "black" },
+      },
   },
+}
 }

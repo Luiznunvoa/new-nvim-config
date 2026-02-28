@@ -44,18 +44,20 @@ return {
     end,
   },
 
-  { -- Syntax Highlighting and a lot more
+  { -- Create a float window with a preview of code actions
+    "aznhe21/actions-preview.nvim",
+  },
+
+  { -- Treesitter: incremental parsing, highlighting, indentation and more
     "nvim-treesitter/nvim-treesitter",
+    lazy = false, -- treesitter does not support lazy-loading
+    build = ":TSUpdate",
     dependencies = {
-      "windwp/nvim-ts-autotag"
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "windwp/nvim-ts-autotag",
     },
-    run = ":TSUpdate",
     config = function()
       require("plugins.coding.treesitter")
     end,
-  },
-
-  { -- Create a float window with a preview of code actions
-    "aznhe21/actions-preview.nvim",
   },
 }
