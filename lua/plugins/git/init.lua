@@ -15,4 +15,6 @@ return {
     event = "VeryLazy",
     opts = require("plugins.git.git-blame")
   },
+
+  {'akinsho/git-conflict.nvim', version = "*", config = true},
 }

@@ -16,7 +16,8 @@ return {
         "texlab",
         "bashls",
         "eslint",
-        "clangd"
+        "clangd",
+        "prismals"
       },
       automatic_installation = true,
     }
@@ -32,6 +33,13 @@ return {
       require("plugins.linter.lsp")
     end,
   },
+
+    {
+      "aznhe21/actions-preview.nvim",
+      config = function()
+        require("actions-preview").setup()
+      end,
+    },
 
   -- { -- Plugin to help me configure custom language servers
   --   "mfussenegger/nvim-lint",

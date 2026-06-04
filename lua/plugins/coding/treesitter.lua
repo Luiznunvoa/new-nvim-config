@@ -29,6 +29,7 @@ require("nvim-treesitter").install {
   "query",
   "dockerfile",
   "gitcommit",
+  "prisma",
 }
 
 -- Enable treesitter-based highlighting, indentation and folding

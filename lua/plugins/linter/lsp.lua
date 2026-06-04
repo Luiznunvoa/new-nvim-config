@@ -74,6 +74,13 @@ lspconfig('clangd', {
   root_markers = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" },
 })
 
+-- Prisma Config
+lspconfig('prismals', {
+  cmd = { "prisma-language-server", "--stdio" },
+  filetypes = { "prisma" },
+  root_markers = { "schema.prisma", ".git" },
+})
+
 -- Enable all configured LSP servers
 lspEnable('lua_ls')
 lspEnable('tailwindcss')
@@ -83,3 +90,4 @@ lspEnable('texlab')
 lspEnable('bashls')
 lspEnable('eslint')
 lspEnable('clangd')
+lspEnable('prismals')
