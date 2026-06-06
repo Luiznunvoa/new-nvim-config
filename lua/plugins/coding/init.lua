@@ -32,6 +32,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-signature-help", -- source usado em nvim-cmp.lua mas ausente nas deps
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
@@ -44,9 +45,8 @@ return {
     end,
   },
 
-  { -- Create a float window with a preview of code actions
-    "aznhe21/actions-preview.nvim",
-  },
+  -- NOTE: actions-preview.nvim removido daqui — declaração canônica com
+  -- setup() está em plugins/linter/init.lua.
 
   { -- Treesitter: incremental parsing, highlighting, indentation and more
     "nvim-treesitter/nvim-treesitter",

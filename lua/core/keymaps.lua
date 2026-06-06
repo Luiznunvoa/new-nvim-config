@@ -42,9 +42,4 @@ vim.api.nvim_set_keymap(
 vim.keymap.set("n", "<leader>rc", "<Cmd>RunCode<CR>", { desc = "Run Code" })
 vim.keymap.set("n", "<leader>rp", "<Cmd>RunCode<CR>", { desc = "Run Project" })
 
-vim.keymap.set("n", "<leader>ft", function()
-  if vim.bo.filetype == "python" then
-    require("conform").format({ async = true })
-  end
-end, { desc = "Format Python (Black)" })
 

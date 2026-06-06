@@ -38,8 +38,7 @@ return {
 
   { -- Fuzzy finder
     "nvim-telescope/telescope.nvim",
-    version = "*",
-    tag = '0.1.8',
+    tag = '0.1.8', -- version e tag conflitantes; tag tem precedência, removido version="*"
     dependencies = { "nvim-lua/plenary.nvim" },
     -- cmd = "Telescope",
     config = function()

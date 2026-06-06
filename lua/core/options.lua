@@ -36,7 +36,6 @@ o.linebreak           = true
 
 -- UI
 o.cursorline          = true
-o.termguicolors       = true
 o.showmode            = true
 
 -- Clipboard
@@ -55,24 +54,25 @@ o.spell             = true
 -- BarBar(tabs plugin) not auto setting up
 g.barbar_auto_setup = false
 
+-- FIX: As duas chamadas separadas faziam a segunda sobrescrever a primeira,
+-- descartando os ícones de sign (signs=false da 2ª chamada apagava os ícones).
+-- Ref: :h vim.diagnostic.config() — cada nova chamada faz vim.tbl_deep_extend
+-- com os valores anteriores, mas `signs=false` torna o campo um booleano,
+-- descartando a sub-tabela `text` definida anteriormente.
 vim.diagnostic.config({
-  signs = {
+  virtual_text    = false,       -- desativa mensagens inline permanentes
+  signs           = {
     text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN]  = " ",
-      [vim.diagnostic.severity.INFO]  = " ",
-      [vim.diagnostic.severity.HINT]  = " ",
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN]  = " ",
+      [vim.diagnostic.severity.INFO]  = " ",
+      [vim.diagnostic.severity.HINT]  = " ",
     },
   },
-})
-
-vim.diagnostic.config({
-  virtual_text = false, -- desativa mensagens inline permanentes
-  signs = false,        -- mantém os ícones na coluna lateral
-  underline = true,     -- ainda sublinha os erros
+  underline       = true,        -- ainda sublinha os erros
   update_in_insert = false,
   float = {
-    scope = "cursor",
+    scope  = "cursor",
     border = "rounded",
     source = "if_many",
     header = "🔎 Diagnostic:",
@@ -89,5 +89,4 @@ vim.diagnostic.config({
 })
 
 vim.cmd("syntax enable")
-
-vim.cmd([[ autocmd TermOpen * startinsert ]])
+-- NOTE: TermOpen autocmd definido em core/autocmds.lua (removido daqui para evitar duplicata)

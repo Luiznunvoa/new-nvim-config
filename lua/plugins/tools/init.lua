@@ -5,15 +5,6 @@ return {
       require("plugins.tools.code-runner")
     end
   },
-
-
-  { -- File tree
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("plugins.tools.tree")
-    end,
-  },
+  -- NOTE: nvim-tree removido daqui — declaração canônica em plugins/finder/init.lua.
+  -- Ter o plugin em dois lugares fazia o lazy.nvim configurar duas vezes.
 }

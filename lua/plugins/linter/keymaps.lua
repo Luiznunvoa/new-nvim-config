@@ -13,8 +13,15 @@ vim.keymap.set(
   "n",
   "<leader>ft",
   function()
-    vim.lsp.buf.format({ async = true })
+    -- FIX: keymap unificado — conform para Python, LSP para os demais.
+    -- Anteriormente havia dois <leader>ft: um em core/keymaps.lua (Python/conform)
+    -- e este (LSP genérico), sendo que o último sempre vencia por ser carregado depois.
+    if vim.bo.filetype == "python" then
+      require("conform").format({ async = true })
+    else
+      vim.lsp.buf.format({ async = true })
+    end
   end,
-  { desc = "Format current buffer" }
+  { desc = "Format current buffer (conform | LSP)" }
 )
 
